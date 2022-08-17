@@ -3,10 +3,10 @@ server:
 
 spring:
   datasource:
-    name: root
+    username: root
     password: hanzhikun
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://119.3.213.7:3306/ape_frame?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&characterEncode=utf-8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://119.3.213.7:3306/ape_frame?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&characterEncode=utf-8&useSSL=false&allowPublicKeyRetrieval=true
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       initial-size: 20

@@ -1,6 +1,8 @@
 package org.hantiv.user.service;
 
+import org.hantiv.entity.PageResult;
 import org.hantiv.user.entity.dto.UserDto;
+import org.hantiv.user.entity.po.UserPo;
 
 /**
  * @Author Zhikun Han
@@ -9,4 +11,8 @@ import org.hantiv.user.entity.dto.UserDto;
  */
 public interface UserService {
     int addUser(UserDto userDto);
+
+    int delete(Integer id);
+
+    PageResult<UserPo> getUserPage(UserDto userDto);
 }
