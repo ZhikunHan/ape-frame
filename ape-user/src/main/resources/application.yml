@@ -1,2 +1,30 @@
 server:
   port: 8080
+
+spring:
+  datasource:
+    name: root
+    password: hanzhikun
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://119.3.213.7:3306/ape_frame?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&characterEncode=utf-8&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 20
+      min-idle: 20
+      max-active: 100
+      max-wait: 60000
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: root
+        login-password: hanzhikun
+      filter:
+        stat:
+          enabled: true
+          log-slow-sql: true
+          slow-sql-millis: 2000
+        wall:
+          enabled: true
+sql:
+  beauty:
+    show: false
