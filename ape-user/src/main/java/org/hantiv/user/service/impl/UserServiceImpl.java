@@ -1,47 +1,92 @@
 package org.hantiv.user.service.impl;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import org.hantiv.entity.PageResult;
-import org.hantiv.user.entity.dto.UserDto;
-import org.hantiv.user.entity.po.UserPo;
-import org.hantiv.user.mapper.UserMapper;
+
+import org.hantiv.user.bean.PageResponse;
+import org.hantiv.user.convert.UserConverter;
+import org.hantiv.user.entity.po.User;
+import org.hantiv.user.dao.UserDao;
+import org.hantiv.user.entity.req.UserReq;
 import org.hantiv.user.service.UserService;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.List;
+
 /**
- * @Author Zhikun Han
- * @Date Created in 22:09 2022/8/12
- * @Description:
+ * user(User)表服务实现类
+ *
+ * @author makejava
+ * @since 2022-10-28 12:17:46
  */
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService {
+    @Resource
+    private UserDao userDao;
 
-    @Autowired
-    private UserMapper userMapper;
-
+    /**
+     * 通过ID查询单条数据
+     *
+     * @param id 主键
+     * @return 实例对象
+     */
     @Override
-    public int addUser(UserDto userDto) {
-        UserPo userPo = new UserPo();
-        BeanUtils.copyProperties(userDto, userPo);
-        int count = userMapper.insert(userPo);
-        int i = 1/0;
-        return count;
+    public User queryById(Long id) {
+        return this.userDao.queryById(id);
     }
 
+    /**
+     * 分页查询
+     *
+     * @param userReq 筛选条件
+     * @return 查询结果
+     */
     @Override
-    public int delete(Integer id) {
-        return userMapper.deleteById(id);
+    public PageResponse<User> queryByPage(UserReq userReq) {
+        User user = UserConverter.INSTANCE.convertReqToUser(userReq);
+        PageResponse<User> pageResponse = new PageResponse<>();
+        pageResponse.setCurrent(userReq.getPageNo());
+        pageResponse.setPageSize(userReq.getPageSize());
+        Long pageStart = (userReq.getPageNo() -1)* userReq.getPageSize();
+        long total = this.userDao.count(user);
+        List<User> userList = this.userDao.queryAllByLimit(user, pageStart, userReq.getPageSize());
+        pageResponse.setTotal(total);
+        pageResponse.setRecords(userList);
+        return pageResponse;
     }
 
+    /**
+     * 新增数据
+     *
+     * @param user 实例对象
+     * @return 实例对象
+     */
     @Override
-    public PageResult<UserPo> getUserPage(UserDto userDto) {
-        IPage<UserPo> userPoPage = new Page<>(userDto.getPageIndex(), userDto.getPageSize());
-        IPage<UserPo> userPage = userMapper.getUserPage(userPoPage);
-        PageResult<UserPo> pageResult = new PageResult<>();
-        pageResult.loadData(userPage);
-        return pageResult;
+    public User insert(User user) {
+        this.userDao.insert(user);
+        return user;
+    }
+
+    /**
+     * 修改数据
+     *
+     * @param user 实例对象
+     * @return 实例对象
+     */
+    @Override
+    public User update(User user) {
+        this.userDao.update(user);
+        return this.queryById(user.getId());
+    }
+
+    /**
+     * 通过主键删除数据
+     *
+     * @param id 主键
+     * @return 是否成功
+     */
+    @Override
+    public boolean deleteById(Long id) {
+        return this.userDao.deleteById(id) > 0;
     }
 }

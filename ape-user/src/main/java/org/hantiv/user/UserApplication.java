@@ -11,8 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
  * @Description:
  */
 @SpringBootApplication
-@MapperScan("org.hantiv.*.mapper")
-@ComponentScan("org.hantiv")
+@MapperScan(value = "org.hantiv.*.mapper")
+@ComponentScan(value = "org.hantiv")
 public class UserApplication {
     public static void main(String[] args) {
         SpringApplication.run(UserApplication.class);

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ape-common-mybatisplus</artifactId>
+    <artiyfactId>ape-common-mybatisplus</artiyfactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>

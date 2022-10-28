@@ -2,21 +2,83 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>ape-frame</artifactId>
-        <groupId>org.hantiv</groupId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
+    <groupId>org.hantiv</groupId>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>ape-user</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.plugin.version>3.10.1</maven.plugin.version>
+        <maven.compile.source>1.8</maven.compile.source>
+        <maven.compile.target>1.8</maven.compile.target>
+        <ape.common.version>0.0.1-SNAPSHOT</ape.common.version>
     </properties>
+
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.7.0</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.hantiv</groupId>
+            <artifactId>ape-common-mybatisplus</artifactId>
+            <version>${ape.common.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hantiv</groupId>
+            <artifactId>ape-common-web</artifactId>
+            <version>${ape.common.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hantiv</groupId>
+            <artifactId>ape-common-swagger</artifactId>
+            <version>${ape.common.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hantiv</groupId>
+            <artifactId>ape-common-redis</artifactId>
+            <version>${ape.common.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.5.3.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>1.5.3.Final</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.plugin.version}</version>
+                <configuration>
+                    <source>${maven.compile.source}</source>
+                    <target>${maven.compile.target}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
 
 </project>

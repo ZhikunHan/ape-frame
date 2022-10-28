@@ -1,43 +1,87 @@
 package org.hantiv.user.controller;
 
-import org.hantiv.bean.Result;
-import org.hantiv.user.entity.dto.UserDto;
-import org.hantiv.user.entity.req.UserListReq;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.hantiv.user.bean.PageResponse;
+import org.hantiv.user.bean.Result;
+import org.hantiv.user.entity.po.User;
 import org.hantiv.user.entity.req.UserReq;
 import org.hantiv.user.service.UserService;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+
 /**
- * @Author Zhikun Han
- * @Date Created in 22:13 2022/8/12
- * @Description:
+ * user(User)表控制层
+ *
+ * @author makejava
+ * @since 2022-10-28 12:17:41
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("user")
+@Api(tags = "用户Controller")
 public class UserController {
-
-    @Autowired
+    /**
+     * 服务对象
+     */
+    @Resource
     private UserService userService;
 
-    @PostMapping
-    public Integer addUser(@RequestBody UserReq userReq){
-        UserDto userDto = new UserDto();
-        BeanUtils.copyProperties(userReq, userDto);
-        int i = userService.addUser(userDto);
-        return i;
-    }
-    @DeleteMapping("/{id}")
-    public Result delete(@PathVariable Integer id) {
-        return Result.ok(userService.delete(id));
+    /**
+     * 分页查询
+     * @return 查询结果
+     */
+    @GetMapping
+    public Result<PageResponse<User>> queryByPage(UserReq userReq) {
+        return Result.ok(this.userService.queryByPage(userReq));
     }
 
-    @GetMapping
-    public Result getPage(@RequestBody UserListReq userListReq) {
-        UserDto userDto = new UserDto();
-        System.out.println(userListReq.toString());
-        BeanUtils.copyProperties(userListReq, userDto);
-        return Result.ok(userService.getUserPage(userDto));
+    /**
+     * 通过主键查询单条数据
+     *
+     * @param id 主键
+     * @return 单条数据
+     */
+    @GetMapping("{id}")
+    public Result<User> queryById(@PathVariable("id") Long id) {
+        return Result.ok(this.userService.queryById(id));
     }
+
+    /**
+     * 新增数据
+     *
+     * @param user 实体
+     * @return 新增结果
+     */
+    @PostMapping
+    @ApiOperation(value = "新增用户", notes = "用户数据")
+    public Result<User> add( @ApiParam("用户类") User user) {
+        return Result.ok(this.userService.insert(user));
+    }
+
+    /**
+     * 编辑数据
+     *
+     * @param user 实体
+     * @return 编辑结果
+     */
+    @PutMapping
+    public Result<User> edit(User user) {
+        return Result.ok(this.userService.update(user));
+    }
+
+    /**
+     * 删除数据
+     *
+     * @param id 主键
+     * @return 删除是否成功
+     */
+    @DeleteMapping
+    public Result deleteById(Long id) {
+        return Result.ok(this.userService.deleteById(id));
+    }
+
 }
+

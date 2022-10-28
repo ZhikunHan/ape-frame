@@ -6,14 +6,17 @@
         <artifactId>ape-frame</artifactId>
         <groupId>org.hantiv</groupId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <groupId>org.hantiv</groupId>
     <artifactId>ape-common</artifactId>
     <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>ape-common-web</module>
         <module>ape-common-mybatisplus</module>
+        <module>ape-common-swagger</module>
     </modules>
 
     <properties>

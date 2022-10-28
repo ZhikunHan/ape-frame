@@ -25,6 +25,36 @@ spring:
           slow-sql-millis: 2000
         wall:
           enabled: true
+
+  redis:
+    host: 158.101.132.40
+    port: 6379
+    database: 0
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+
 sql:
   beauty:
     show: false
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: delete_flag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+    banner: false
+  mapper-locations: classpath:mapper/*.xml
+
+swagger:
+  base-package: org.hantiv
+  title: ape-frame
+  contact-name: Han_tiv
+  contact-url: git
+  email: zhikun.han@outlook.com
+  version: 1.0
+  description: 脚手架
