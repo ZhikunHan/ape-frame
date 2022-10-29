@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Data
 public class Result<T> implements Serializable {
 
-    private Result(){
+    private Result() {
 
     }
 
@@ -24,7 +24,7 @@ public class Result<T> implements Serializable {
 
     private T data;
 
-    public static Result ok(){
+    public static Result ok() {
         Result result = new Result();
         result.setSuccess(true);
         result.setCode(ResultCode.SUCCESS);
@@ -32,7 +32,7 @@ public class Result<T> implements Serializable {
         return result;
     }
 
-    public static Result ok(Integer resultCode, String resultMessage){
+    public static Result ok(Integer resultCode, String resultMessage) {
         Result result = new Result();
         result.setSuccess(true);
         result.setCode(resultCode);

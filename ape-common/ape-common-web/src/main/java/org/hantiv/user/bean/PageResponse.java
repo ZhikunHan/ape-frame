@@ -32,7 +32,7 @@ public class PageResponse<T> {
     public void setRecords(List<T> result) {
         this.result = result;
         if (result != null && result.size() > 0 && this.total == 0) {
-            setTotal(result.size());
+            setTotal((long) result.size());
         }
 
     }

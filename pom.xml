@@ -5,11 +5,12 @@
     <groupId>org.hantiv</groupId>
     <artifactId>ape-frame</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>ape-common</module>
         <module>ape-user</module>
-        <module>ape-common/ape-common-redis</module>
+        <module>ape-dependencies</module>
+        <module>ape-common/ape-common-tool</module>
     </modules>
 
 

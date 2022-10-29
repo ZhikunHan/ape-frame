@@ -58,3 +58,10 @@ swagger:
   email: zhikun.han@outlook.com
   version: 1.0
   description: 脚手架
+
+logging:
+  config: classpath:log4j-spring.xml
+
+log:
+  aspect:
+    enable: false

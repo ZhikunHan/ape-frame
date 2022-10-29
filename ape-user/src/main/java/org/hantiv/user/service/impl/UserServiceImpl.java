@@ -8,6 +8,7 @@ import org.hantiv.user.dao.UserDao;
 import org.hantiv.user.entity.req.UserReq;
 import org.hantiv.user.service.UserService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
