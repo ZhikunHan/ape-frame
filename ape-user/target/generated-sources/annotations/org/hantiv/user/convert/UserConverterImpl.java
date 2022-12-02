@@ -6,7 +6,7 @@ import org.hantiv.user.entity.req.UserReq;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-29T16:52:02+0800",
+    date = "2022-10-30T10:01:43+0800",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_341 (Oracle Corporation)"
 )
 public class UserConverterImpl implements UserConverter {

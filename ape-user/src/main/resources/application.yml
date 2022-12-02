@@ -27,7 +27,7 @@ spring:
           enabled: true
 
   redis:
-    host: 158.101.132.40
+    host: 119.3.213.7
     port: 6379
     database: 0
     lettuce:
@@ -64,4 +64,8 @@ logging:
 
 log:
   aspect:
-    enable: false
+    enable: true
+
+guava:
+  cache:
+    switch:true

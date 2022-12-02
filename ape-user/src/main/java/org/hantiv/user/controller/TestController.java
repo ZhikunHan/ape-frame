@@ -3,6 +3,7 @@ package org.hantiv.user.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.hantiv.redis.util.RedisShareLockUtil;
 import org.hantiv.redis.util.RedisUtil;
+import org.hantiv.tool.ExportWordUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,7 +55,12 @@ public class TestController {
     public void testExport() throws Exception {
         Map<String, Object> dataMap = new HashMap<>();
         dataMap.put("name", "经典鸡翅");
-//        dataMap.put("auditName", "可乐鸡翅");
-//        ExportWordUtil.exportWord(dataMap, "导出文件", "wordExport.ftl");
+        dataMap.put("auditName", "可乐鸡翅");
+        ExportWordUtil.exportWord(dataMap, "导出文件", "wordExport.ftl");
+    }
+
+    @GetMapping("/testLocalCache")
+    public void testLocalCache() throws Exception{
+
     }
 }

@@ -32,6 +32,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/ape-common/ape-common-mybatisplus/pom.xml" />
         <option value="$PROJECT_DIR$/ape-common/ape-common-web/pom.xml" />
+        <option value="$PROJECT_DIR$/ape-common/ape-common-websocket/pom.xml" />
       </list>
     </option>
   </component>
