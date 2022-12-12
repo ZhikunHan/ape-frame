@@ -30,7 +30,7 @@
         <spring.boot.jdbc.version>2.4.2</spring.boot.jdbc.version>
         <spring.aop.version>2.4.2</spring.aop.version>
         <spring.boot.druid.version>1.2.9</spring.boot.druid.version>
-        <mysql.connector.version>8.0.22</mysql.connector.version>
+        <mysql.connector.version>8.0.28</mysql.connector.version>
         <spring.boot.mybatis.version>3.4.0</spring.boot.mybatis.version>
         <disruptor.version>3.4.2</disruptor.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
