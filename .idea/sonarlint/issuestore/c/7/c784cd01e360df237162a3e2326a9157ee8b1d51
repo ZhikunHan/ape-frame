@@ -1,7 +1,6 @@
 
-_
-java:S3518"CMake sure this expression can't be zero before doing this division.(õ∫ù<8„•œÙ™0
-Q
-java:S1854"5Remove this useless assignment to local variable "i".(õ∫ù<8°¶œÙ™0
-B
-java:S1481"&Remove this unused "i" local variable.(õ∫ù<8Á¶œÙ™0
+]
+java:S1128
+"@Remove this unused import 'org.springframework.beans.BeanUtils'.(äƒ‹8®Øâ≥œ0
+h
+java:S1128"KRemove this unused import 'org.springframework.cache.annotation.Cacheable'.(›∫ÿì8©Øâ≥œ0
