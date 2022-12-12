@@ -8,7 +8,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>ape-common</module>
-        <module>ape-user</module>
+        <module>ape-demo</module>
         <module>ape-dependencies</module>
     </modules>
 

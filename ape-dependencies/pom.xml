@@ -40,6 +40,7 @@
         <guava.version>23.0</guava.version>
         <fastjson.version>2.0.7</fastjson.version>
         <spring.websocket.version>2.7.3</spring.websocket.version>
+        <http.client.version>5.0.4</http.client.version>
     </properties>
 
     <dependencies>
@@ -184,6 +185,11 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-websocket</artifactId>
                 <version>${spring.websocket.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents.client5</groupId>
+                <artifactId>httpclient5</artifactId>
+                <version>${http.client.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

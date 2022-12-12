@@ -1,6 +1,5 @@
 package org.hantiv.user.bean;
 
-import lombok.Data;
 import lombok.Setter;
 
 /**
