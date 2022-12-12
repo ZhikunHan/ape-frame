@@ -1,6 +1,6 @@
-package org.hantiv.user.common;
+package org.hantiv.demo.common;
 
-import org.hantiv.user.bean.Result;
+import org.hantiv.demo.bean.Result;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

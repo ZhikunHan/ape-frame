@@ -1,0 +1,71 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: root
+    password: hanzhikun
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://119.3.213.7:3306/ape_frame?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&characterEncode=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 20
+      min-idle: 20
+      max-active: 100
+      max-wait: 60000
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: root
+        login-password: hanzhikun
+      filter:
+        stat:
+          enabled: true
+          log-slow-sql: true
+          slow-sql-millis: 2000
+        wall:
+          enabled: true
+
+  redis:
+    host: 119.3.213.7
+    port: 6379
+    database: 0
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+
+sql:
+  beauty:
+    show: false
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: delete_flag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+    banner: false
+  mapper-locations: classpath:mapper/*.xml
+
+swagger:
+  base-package: org.hantiv
+  title: ape-frame
+  contact-name: Han_tiv
+  contact-url: git
+  email: zhikun.han@outlook.com
+  version: 1.0
+  description: 脚手架
+
+logging:
+  config: classpath:log4j-spring.xml
+
+log:
+  aspect:
+    enable: true
+
+  guava:
+    cache:
+      switch: true

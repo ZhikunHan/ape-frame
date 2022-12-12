@@ -1,0 +1,5 @@
+org\hantiv\config\MybatisConfiguration.class
+org\hantiv\entity\PageResult.class
+org\hantiv\handler\MyMetaObjectHandler.class
+org\hantiv\interceptor\SqlBeautyInterceptor.class
+org\hantiv\entity\BaseEntity.class

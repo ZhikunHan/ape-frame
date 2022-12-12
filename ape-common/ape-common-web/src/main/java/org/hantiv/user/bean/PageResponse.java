@@ -1,4 +1,4 @@
-package org.hantiv.user.bean;
+package org.hantiv.demo.bean;
 
 import java.util.Collections;
 import java.util.List;

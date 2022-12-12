@@ -1,4 +1,4 @@
-package org.hantiv.user.entity;
+package org.hantiv.demo.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
