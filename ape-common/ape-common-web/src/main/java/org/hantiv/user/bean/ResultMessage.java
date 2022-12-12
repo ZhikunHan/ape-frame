@@ -1,4 +1,4 @@
-package org.hantiv.demo.bean;
+package org.hantiv.user.bean;
 
 /**
  * @Author Zhikun Han

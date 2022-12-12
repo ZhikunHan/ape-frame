@@ -1,4 +1,4 @@
-package org.hantiv.demo.interceptor;
+package org.hantiv.user.interceptor;
 
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
